@@ -1,0 +1,81 @@
+/* Add your styles for the bookshelf and books here */
+body {
+    background-color: #fde3a7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.bookshelf {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.book {
+    background-color: #fde3a7;
+    width: 150px;
+    height: 220px;
+    margin: 0 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 9px 20px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    transform-origin: left center;
+}
+
+.book:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 18px 40px rgba(0, 0, 0, 0.3);
+}
+
+.book .book-cover {
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+}
+
+.book .book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book .book-title {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+    transform-origin: left center;
+}
+
+.book.opened {
+    transform: perspective(1000px) rotateY(-45deg);
+}
+
+.book.opened .book-title {
+    transform: rotateY(45deg);
+    background-color: #fde3a7;
+    transition: transform 0.3s ease;
+    transform-origin: right center;
+}
+
+.book-content {
+    padding: 10px;
+    background-color: #fff;
+    transform: rotateY(180deg);
+    transform-origin: right center;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
